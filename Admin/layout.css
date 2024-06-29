@@ -1,0 +1,790 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --main-color: #C94842;
+  --red: #e74c3c;
+  --orange: #f39c12;
+  --light-color: #888;
+  --light-bg: #eee;
+  --black: #3a3a3a;
+  --white: #ffffff;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  --gray: #3a3a3b;
+  --darkgray: #d5d7da;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--light-bg);
+}
+
+body.dark{
+    --light-color:#aaa;
+    --light-bg:#333;
+    --black:#fff;
+    --white:#222;
+    --border:.1rem solid rgba(255,255,255,.2);
+ }
+
+/* side-bar */
+.side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35rem;
+    height: 100vh;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    z-index: 5;
+  }
+
+.side-bar .logo {
+  padding: 2rem 0 0 0rem;
+  text-align: left;
+}
+
+.side-bar .logo .image {
+  height: 10rem;
+  width: 30rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.side-bar .logo .menu {
+  font-size: 2rem;
+  color: var(--light-color);
+  margin-top: 20px;
+}
+
+.side-bar .navbar a {
+  display: block;
+  padding: 1.2rem;
+  padding-left: 4rem;
+  font-size: 2rem;
+  margin: 0 2rem;
+  border-radius: 5px;
+}
+
+.side-bar .navbar a i {
+  margin-right: 1rem;
+  color: var(--light-color);
+  transition: 0.2s linear;
+}
+
+.side-bar .navbar a span {
+  color: var(--black);
+}
+
+.side-bar .navbar a:hover {
+  background-color: var(--main-color);
+}
+
+.side-bar .navbar a:hover i {
+  margin-right: 2.5rem;
+  color: var(--light-bg);
+}
+
+.side-bar .navbar a:hover span {
+  margin-right: 2.5rem;
+  color: var(--light-bg);
+  font-weight: bold;
+}
+
+.side-bar.active {
+  left: -30rem;
+}
+
+/* header */
+/* Style du header */
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80.5%;
+    background-color: var(--white);
+    filter: drop-shadow(0 0 10px var(--light-color));
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 1em;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+
+/* HEADER FLEX-LEFT */
+
+.header .flex-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+#menu_checkbox {
+  visibility: hidden;
+}
+
+.header label {
+  position: relative;
+  top: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+  cursor: pointer;
+  color: #000; /* Replace with your desired color */
+}
+
+.header label div {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
+  border-radius: 2px;
+  font-size: 3.3rem;
+  text-align: center;
+}
+
+.header .flex-left {
+  display: flex;
+  align-items: center;
+}
+
+.header .icons {
+  margin-right: 20px;
+}
+
+
+#menu_checkbox:checked ~ .header label div:first-child {
+  display: none;
+}
+
+#menu_checkbox:checked ~ .header label div:nth-child(2) {
+  display: block;
+}
+
+#menu_checkbox:not(:checked) ~ .header label div:first-child {
+  display: block;
+}
+
+#menu_checkbox:not(:checked) ~ .header label div:nth-child(2) {
+  display: none;
+}
+
+#menu_checkbox:checked ~ .header {
+  width: 95.5%;
+  left: 4%;
+}
+
+#menu_checkbox:checked ~ .header {
+  width: 95.5%;
+  left: 4%;
+}
+
+#menu_checkbox:checked ~ .home-section {
+    width: 95%;
+    left: 4%;
+    margin-left: 0;
+}
+
+#menu_checkbox:checked ~ .footer {
+  width: 95%;
+  left: 4%;
+  margin-left: 0;
+}
+
+#menu_checkbox:checked ~ .side-bar {
+  left: -29rem;
+  transition: 0.2s linear;
+}
+
+#menu_checkbox:checked ~ .side-bar .navbar a {
+  display: block;
+  position: relative;
+  left: 64%;
+  width: 0;
+}
+
+#menu_checkbox:checked ~ .side-bar .navbar a i {
+  margin-right: 1rem;
+  color: var(--light-color);
+  transition: 0.2s linear;
+  font-size: 4rem;
+  margin-left: 1.5rem;
+}
+
+#menu_checkbox:checked ~ .side-bar .navbar a span {
+  display: none;
+}
+
+#menu_checkbox:checked ~ .side-bar .navbar a:hover i {
+  margin-right: 2.5rem;
+  color: var(--main-color);
+}
+
+#menu_checkbox:checked ~ .side-bar .logo {
+  display: none;
+}
+
+/* DARk MODE STYLE*/
+
+/* Ajoutez ceci à votre fichier CSS */
+.header .flex-left .icons div {
+  font-size: 3rem;
+  color: var(--black);
+  background-color: var(--light-bg);
+  border-radius: 20rem;
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
+  cursor: pointer;
+  text-align: center;
+  position: absolute; /* Pour positionner l'icône indépendamment des autres éléments */
+  right: 45rem; /* Ajustez cette valeur pour positionner l'icône à droite */
+}
+
+.header .flex-left .icons div:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+
+/*END DARk MODE STYLE*/
+
+/* HEADER SEARCH FORM */
+
+.header .flex-left .search-form {
+  width: 30rem;
+  border-radius: 2rem; /* More moderate border-radius */
+  background-color: var(--light-bg);
+  padding: 1rem 1.2rem; /* Adjusted padding for a better layout */
+  display: flex;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.header .flex-left .search-form input {
+  width: calc(100% - 3rem); /* Adjust width to leave space for button */
+  font-size: 1.6rem; /* Adjusted for better readability */
+  color: var(--black);
+  background: none;
+  border: none; /* Remove any default border */
+  outline: none; /* Remove focus outline */
+}
+
+.header .flex-left .search-form button {
+  width: 3rem; /* Fixed width for the button */
+  background: none;
+  border: none; /* Remove any default border */
+  font-size: 2rem; /* Icon size */
+  cursor: pointer;
+  color: var(--main-color);
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.header .flex-left .search-form button:hover,
+.header .flex-left .search-form input:focus + button {
+  color: var(--highlight-color); /* Highlight color on hover/focus */
+}
+
+.header .flex-left .search-form:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* HEADER FLEX-RIGHT */
+
+.header .flex-right {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+input[type="date"] {
+  width: 100%;
+  margin: 0 auto;
+  background: var(--light-bg);
+  color: var(--main-color);
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Animations pour la bordure et l'ombre */
+}
+
+input[type="date"]:hover {
+  border-color: #67c57a; /* Couleur de bordure au survol */
+  box-shadow: 0 0 8px 0 #67c57a; /* Ombre autour de l'input au survol */
+}
+
+.flex-right .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 20px;
+  cursor: pointer;
+  color:var(--black)
+}
+
+.flex-right .logo .image {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.flex-right .logo .info {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.flex-right .logo p {
+  color: var(--main-color);
+}
+
+
+.header .profile {
+    position: absolute;
+    top: 105%;
+    right: 0.5rem;
+    background-color: #ada9a9;
+    border-radius: .8rem;
+    padding: 1.5rem;
+    text-align: center;
+    overflow: hidden;
+    transform-origin: top right;
+    transform: scale(0);
+    transition: .2s linear;
+    width: 30rem;
+
+}
+
+.header .profile.active {
+    transform: scale(1);
+}
+
+.header .btn,
+.header .option-btn {
+    border-radius: .5rem;
+    color: #323131;
+    font-size: 1.8rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    padding: 1rem 3rem;
+    text-align: center;
+}
+
+.header .btn,
+.header .option-btn {
+    display: block;
+    width: 100%;
+}
+
+.header .option-btn:hover {
+    background-color: #f1d1d1;
+    color: var(--red);
+}
+
+.header .btn:hover {
+    background-color: #e6d9c7;
+    color: #dd8c49;
+    font-weight: bold;
+}
+
+.home-section {
+    position: relative;
+    margin: 5px .7rem 2px 37.2rem;
+    padding: 0;
+    top: 80px;
+    right: 10px;
+    transition: all 0.3s ease;
+}
+
+.home-section .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--light-bg);
+    padding: 2rem 0;
+    color: var(--black);
+    font-size: 2rem;
+}
+
+.home-section .title .left {
+    font-weight: bold;
+    color: var(--black);
+}
+
+.home-section .title .right {
+    font-size: 1.5rem;
+    text-align: end;
+}
+
+.content {
+    background-color: var(--white);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+/* START SRYLE TABLE */
+.container-table {
+    box-shadow: 0 0 10px var(--black);
+    font-family: 'Arial', sans-serif;
+  
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    color: var(--black);
+}
+
+th, td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--white);
+}
+
+th {
+    background-color: var(--light-bg);
+    color: var(--black);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+.line {
+    font-size: 1.9em;
+}
+
+tr:nth-child(even) {
+    background-color: var(--light-bg);
+}
+
+tr:hover {
+    background-color: var(--light-bg);
+}
+
+.line5 input{
+    display: none;
+}
+
+.line5 input[type="checkbox"] + label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-color: var(--white);
+    border: 2px solid var(--light-color);
+    border-radius: 3px;
+    vertical-align: middle;
+    transition: background-color 0.3s;
+}
+
+.line5 input[type="checkbox"]:checked + label::before {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.line5 input[type="checkbox"]:checked + label::after {
+    content: '✓';
+    font-size: 14px;
+    color: var(--white);
+    position: absolute;
+    left: 4px;
+    top: 1px;
+}
+
+.footer-table {
+    padding: 10px;
+    background-color: var(--white);
+    border-top: 1px solid var(--black);
+    text-align: right;
+    height: 50px;
+}
+
+
+@media screen and (max-width: 768px) {
+    thead {
+        display: none;
+    }
+
+    tbody, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    td {
+        text-align: center;
+        padding-left: 0%;
+        text-align: center;
+        position: relative;
+    }
+
+    td::before {
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    td:nth-of-type(1)::before { content: "Image"; }
+    td:nth-of-type(2)::before { content: "Nom"; }
+    td:nth-of-type(3)::before { content: "Prénom"; }
+    td:nth-of-type(4)::before { content: "Email"; }
+    td:nth-of-type(5)::before { content: "Genre"; }
+    td:nth-of-type(6)::before { content: "Téléphones"; }
+    td:nth-of-type(7)::before { content: "Référentiels"; }
+    td:nth-of-type(8)::before { content: "Actions"; }
+}
+
+/* END SRYLE TABLE */
+
+/* END SECTION */
+
+/* FOOTER */
+.footer {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--white);
+  text-align: center;
+  font-size: 2rem;
+  padding: 3rem 0;
+  color: var(--black);
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.footer span {
+  color: var(--main-color);
+}
+
+
+/* Styles pour les options de gestion des chambres */
+.options {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.option-button {
+  background-color: var(--main-color);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.option-button:hover {
+  background-color: var(--darkgray);
+  transform: scale(1.05);
+}
+
+/* Styles pour le contenu dynamique */
+.hidden {
+  display: none;
+}
+
+.animation-content {
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+/* Animation d'apparition */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ajout de styles pour le dark mode */
+body.dark .option-button {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+body.dark .option-button:hover {
+  background-color: var(--light-color);
+}
+.hidden {
+  display: none;
+}
+#ajouter-chambre-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+#ajouter-chambre-form h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+#ajouter-salle-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+#ajouter-salle-form h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group label {
+  margin-right: 10px;
+}
+
+.submit-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.hidden {
+  display: none;
+}
+.chambres-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.chambre {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+}
+.chambre img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.dashboard-title {
+  font-size: 2.5rem; /* Taille de police légèrement réduite */
+  color: var(--main-color);
+  margin-bottom: 20px; /* Marge inférieure légèrement augmentée */
+  text-transform: uppercase; /* Texte en majuscules */
+  font-weight: bold; /* Texte en gras */
+  text-align: center; /* Centrer le texte */
+  border-bottom: 2px solid var(--main-color);
+  ; /* Bordure inférieure plus sobre */
+  padding-bottom: 10px; /* Espace sous la bordure ajusté */
+  letter-spacing: 2px; /* Espacement entre les lettres */
+}
+
+ /* Styles spécifiques pour la page d'accueil */
+ .welcome-message {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.welcome-message h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 20px;
+}
+.welcome-message p {
+  font-size: 1.7rem;
+  color: #666;
+  line-height: 1.6;
+}

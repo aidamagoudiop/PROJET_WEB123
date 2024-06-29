@@ -1,0 +1,152 @@
+int choix_matiere()
+{
+    debut :
+    gestion_des_matieres();
+        int choix = saisie_choix();
+
+        switch(choix)
+        {
+            case 1 : 
+            ajout_matiere();
+            break;
+
+            case 2 :
+            supprimer_matiere();
+            break;
+
+            case 3:
+            modifier_matiere(); 
+            break;
+            case 4:
+            lister_les_matieres_dune_classe();
+            break;
+            case 5:
+            associer_une_matiere_a_une_classe();
+            break;
+            case 6:
+            dissocier_matiere_classe();
+            break;
+            default :
+            return 1;
+        }
+    goto debut;
+}
+
+
+void ajout_matiere()
+{
+    Matiere matr;
+    int reference;
+
+    printf("Entrez la reference de la matiere :\n");
+    scanf("%d", &matr.reference);
+    while(verifier_reference(matr.reference))
+    {
+        printf("Cette reference existe deja. Veuillez saisir une autre reference :");
+        scanf("%d", &matr.reference);
+
+    }
+    printf("Entrez le libelle de la matiere :\n");
+    scanf("%s", matr.libelle);
+    printf("Entrez le coefficient de la matiere :\n");
+    scanf("%hi", &matr.coefficient);
+    while(matr.coefficient < 0)
+    {
+        printf("Le coefficient ne peut prendre une valeur negative. Entrez un autre coefficient :\n");
+        scanf("%hi", &matr.coefficient);
+    }
+
+    FILE *fic1 = fopen("matiere.csv", "a");
+    if(fic1 != NULL)
+    {
+        fprintf(fic1, "\n%d;%s ;%hi", matr.reference, matr.libelle, matr.coefficient);
+        printf("Matiere ajoutée\n");
+    }
+    fclose(fic1);
+
+
+
+
+}
+
+void supprimer_matiere()
+{
+    int reference;
+    Matiere algo;
+    FILE *fichier_ancien;
+    FILE *fichier_copie;
+    Etudiant etud;
+    unsigned char texte[256];
+
+    debut :
+
+    reference = saisie_reference();
+
+    if(verifier_reference(reference))
+    {
+        fichier_ancien = fopen("matiere.csv", "r");
+        fichier_copie = fopen("copie.csv", "a");
+        
+
+        while(!feof(fichier_ancien))
+        {
+            fscanf(fichier_ancien, "%d;%s ;%hi", &algo.reference, algo.libelle, &algo.coefficient);
+            if(reference != algo.reference)
+            {
+                fprintf(fichier_copie, "\n%d;%s ;%hi", algo.reference, algo.libelle, algo.coefficient);
+                printf("Matiere supprimée");
+            }
+        }
+
+        fclose(fichier_ancien);
+        fclose(fichier_copie);
+        remove("matiere.csv");
+        rename("copie.csv", "matiere.csv");
+    }
+    else 
+    {
+        printf("Cette reference n'existe pas. Veuillez saisir une autre reference :\n");
+        goto debut;
+    }
+
+
+}
+
+ 
+void modifier_matiere(){
+    Matiere matr;
+    int reference;
+    printf("Entrer la référence de la matière que vous voulez modifier");
+     scanf("%d",&reference);
+     if(verifier_reference(reference)){
+        FILE* ftpr= fopen("matiere.csv", "r");
+        FILE* fbr= fopen("crmatiere.csv", "a");
+        do{
+            fscanf(ftpr, "%d;%s ;%hd", &matr.reference,matr.libelle,&matr.coefficient);
+            if(reference==matr.reference){
+                printf("donner la nouvelle référence:");
+                scanf("%d",&matr.reference);
+                printf("donner le nouveau libellé:");
+                scanf("%s",matr.libelle);
+                 printf("donner le nouveau coefficient:");
+                scanf("%hd",&matr.coefficient);  
+                fprintf(fbr, "\n%d;%s ;%hd", matr.reference, matr.libelle, matr.coefficient);
+            }
+            else{
+                fprintf(fbr, "\n%d;%s ;%hd", matr.reference, matr.libelle, matr.coefficient);
+            }
+        }while(!feof(ftpr));
+        fclose(fbr);
+        fclose(ftpr);
+        remove("matiere.csv");
+        rename("crmatiere.csv","matiere.csv");
+        printf("Modification réussie\n");
+     }
+     else{
+         printf("Cette matiere n'existe pas");
+    }
+     
+    
+    
+}
+

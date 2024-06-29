@@ -1,0 +1,280 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	-outline: 0;
+	font-family : Roboto, sans-serif, arial;
+}
+html 
+	{
+	font-size: 14px;
+	font-weight: 400;
+	background: #FADBD8;
+	color: #fff;
+}
+body,html {
+    animation-name: pulseBackground; /* Nom de l'animation */
+    animation-duration: 5s; /* Durée de l'animation */
+    animation-iteration-count: infinite; /* Répétition infinie de l'animation */
+    animation-direction: alternate; /* Alternance entre l'animation et son état initial */
+}
+
+/* Animation de pulsation pour le fond de la page */
+@keyframes pulseBackground {
+    0% {
+        background-color: #ffdae5; /* Couleur de fond au début de l'animation */
+    }
+    50% {
+        background-color: #ffc0cb; /* Couleur de fond à mi-chemin de l'animation */
+    }
+    100% {
+        background-color: #ffdae5; /* Couleur de fond à la fin de l'animation */
+    }
+}
+
+.container {
+	width: 1100px;
+	margin: 0px auto;
+	display: table;
+}
+.width-33 {
+	width: 33%;
+	float: left;
+}
+.width-66 {
+	width: 66%;
+	float: left;
+}
+
+
+/*****MON BANNERR*****/
+.width-50 {
+	float: left;
+	width: 50%;
+}
+.banner-section {
+	width: 100%;
+	float: left;
+	margin-top: 7vh;
+}
+
+.banner-section h1 {
+	font-size: 48px;
+	margin-top: 10px;
+	font-weight: bolder;
+}
+.banner-section h2 {
+	font-size: 20px;
+	line-height: 25px;
+	margin-top: 10px;
+	font-weight: 400;
+}
+.banner-section a {
+	float: left;
+	text-decoration: none;
+	font-size: 18px;
+	margin-top: 20px;
+	border-radius: 50%;
+	text-align: center;
+	border: 2px solid #ffbf35;
+	color: #ffbf35;
+	margin-left: 10px;
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+}
+/*****MON BANNERR IMAGE*****/
+.main-panel img {
+	margin-top: 10%;
+	width: 100%;
+	margin-left: 10%;
+}
+/* Style pour l'image du logo */
+.banner-section img {
+	width: 100%; /* Ajuster la largeur de l'image pour remplir la largeur du conteneur */
+	max-width: 400px; /* Limiter la largeur maximale de l'image à 400px */
+	height: auto; /* Permettre à la hauteur de s'ajuster automatiquement en fonction de la largeur */
+	display: block; /* Assurer que l'image est affichée en bloc pour gérer les marges correctement */
+	margin-bottom: 20px; /* Ajouter une marge en bas de l'image pour l'écart avec le texte */
+	margin-top: 30px; /* Ajouter un espacement en haut de l'image */
+}
+
+
+/*A PROPOS*/
+.main-section {
+	width: 100%;
+	float: left;
+	padding: 110px 0px 110px 0px;
+}
+.width-100 {
+	width: 100%;
+	float: left;
+}
+.mt-20 {
+	margin-top: 20px;
+}
+.heading-text {
+	width: 100%;
+	float: left;
+	font-size: 35px;
+	text-align: center;
+	margin-bottom: 50px;
+	color: #ffbf35;
+}
+
+.about-us {
+	width: 100%;
+	float: left;
+	padding: 20px;
+}
+
+table {
+	width: 100%;
+}
+table th,
+table td {
+	font-size: 16px;
+	text-align: left;
+	padding: 5px 0px;
+}
+
+
+/* Style du formulaire */
+form {
+	max-width: 85%;
+	margin: 0 auto;
+	margin-top: 20px;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des étiquettes */
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+/* Style des champs de saisie */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"], /* Ajout du sélecteur pour les champs de type number */
+select {
+	width: calc(100% - 20px);
+	padding: 4px;
+	margin-bottom: 15px;
+	border: none;
+	border-bottom: 2px solid #cbb8d8; /* Nouvelle couleur pour la bordure basse par défaut */
+	border-radius: 0; 
+	box-sizing: border-box;
+	transition: border-bottom-color 0.3s, color 0.3s; 
+	outline: none; /* Supprimer le rectangle de focus par défaut */
+	color: #432257; /* Couleur du texte par défaut */
+	font-family: 'Poppins', sans-serif; /* Police Poppins */
+	font-size:12px; /* Taille du texte */
+	font-weight: bold; /* Texte en gras */
+}
+
+
+/* Style de la bordure basse et du texte lorsque le champ est en focus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus {
+	border-bottom-color: #C94842; /* Couleur de la bordure basse lorsqu'en focus */
+	color: #C94842; /* Couleur du texte lorsqu'en focus */
+}
+
+/* Style de la bordure basse et du texte lorsque le champ n'est pas en focus */
+input[type="text"]:not(:focus),
+input[type="email"]:not(:focus),
+input[type="tel"]:not(:focus),
+select:not(:focus) {
+	border-bottom-color: #cbb8d8; /* Couleur de la bordure basse par défaut */
+}
+
+
+
+
+
+/* Style du bouton d'envoi */
+input[type="submit"] {
+    background-color: #C94842;
+	color: white;
+    padding: 13px 40px; /* Augmentation du padding horizontal */
+	border: none;
+    border-radius: 10px; /* Coins plus arrondis */
+	cursor: pointer;
+	font-size: 16px;
+}
+
+/* Style du bouton d'envoi au survol */
+input[type="submit"]:hover {
+    background-color: rgba(201, 72, 66, 0.4);
+}
+
+/* Style pour chaque élément d'information de contact */
+.contact-info div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-left: 40px;
+    font-size: 18px;
+    position: relative;
+    background-color: rgba(201, 72, 66, 0.4);
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 15px;
+    border: 2px solid #C94842;
+}
+
+/* Style pour l'icône */
+.contact-info div i {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #C94842;
+}
+
+/* Style pour le texte à côté de l'icône */
+.contact-info div span {
+    color: #ffff;
+}
+
+/* Style du champ Date de départ */
+input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 4px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 2px solid #330251; /* Couleur de la bordure basse par défaut */
+    border-radius: 0;
+    box-sizing: border-box;
+    transition: border-bottom-color 0.3s, color 0.3s;
+    outline: none; /* Supprimer le rectangle de focus par défaut */
+    color: #432257; /* Couleur du texte par défaut */
+    font-family: 'Poppins', sans-serif; /* Police Poppins */
+    font-size: 12px; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+}
+
+/* Style de la bordure basse et du texte lorsque le champ est en focus */
+input[type="date"]:focus {
+    border-bottom-color: #C94842; /* Couleur de la bordure basse lorsqu'en focus */
+    color: #C94842; /* Couleur du texte lorsqu'en focus */
+}
+
+/* Style de la bordure basse et du texte lorsque le champ n'est pas en focus */
+input[type="date"]:not(:focus) {
+    border-bottom-color: #cbb8d8; /* Couleur de la bordure basse par défaut */
+}
+
+input[type="date"].custom-placeholder::before {
+	content: attr(placeholder);
+	color: #999; /* Couleur du placeholder personnalisé */
+  }
+  
